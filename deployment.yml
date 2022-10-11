@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app-container
-        image: akash300/spam:2
+        image: akash300/spam
         ports:
         - containerPort: 5000
 ---

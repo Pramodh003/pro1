@@ -1,27 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spam:7
+  name: spam:9
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: spam:7
+      app: spam:9
   template:
     metadata:
       labels:
-        app: spam:7
+        app: spam:9
     spec:
       containers:
-      - name: spam:7
-        image: akash300/spam:7
+      - name: spam:9
+        image: akash300/spam:9
         ports:
         - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: spam:7
+  name: spam:9
 spec:
   type: NodePort
   ports:
@@ -29,4 +29,4 @@ spec:
     targetPort: 5000
     nodePort: 32002
   selector:
-    app: spam:7
+    app: spam:9

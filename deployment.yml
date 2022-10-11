@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spam-app-deploy
+  name: spam-app1-deploy
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: spam-app
+      app: spam-app1
   template:
     metadata:
       labels:
-        app: spam-app
+        app: spam-app1
     spec:
       containers:
-      - name: flask-app-container
+      - name: spam-app-container
         image: akash300/spam:1
         ports:
         - containerPort: 5000
@@ -21,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: spam-app-svc
+  name: spam-app1-svc
 spec:
   type: NodePort
   ports:
@@ -29,4 +29,4 @@ spec:
     targetPort: 5000
     nodePort: 32002
   selector:
-    app: spam-app
+    app: spam-app1
